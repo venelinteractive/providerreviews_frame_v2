@@ -1,22 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
   images: {
     unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-    ],
   },
-  output: 'export',
-  // This ensures your dynamic routes are properly exported
-  trailingSlash: true,
-  // Disable image optimization features that aren't supported in static exports
-  experimental: {
-    images: {
-      allowFutureImage: true,
-    },
+  trailingSlash: false,
+  // This is important for dynamic routes in static exports
+  exportPathMap: async function (
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) {
+    return defaultPathMap;
   },
 };
 

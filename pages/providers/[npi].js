@@ -205,15 +205,28 @@ export async function getStaticProps({ params }) {
 
 // Utility functions
 const fetchProviderData = async (npi) => {
-  const res = await fetch(`${process.env.API_URL}npi/${npi}`, {
-    headers: {
-      accept: 'application/json',
-      apikey: process.env.API_KEY,
-    },
-  });
+  try {
+    const apiUrl = process.env.API_URL.endsWith('/')
+      ? process.env.API_URL
+      : `${process.env.API_URL}/`;
 
-  if (!res.ok) return null;
-  return res.json();
+    const res = await fetch(`${apiUrl}npi/${npi}`, {
+      headers: {
+        accept: 'application/json',
+        apikey: process.env.API_KEY,
+      },
+    });
+
+    if (!res.ok) {
+      console.error(`API returned ${res.status} for NPI ${npi}`);
+      return null;
+    }
+
+    return res.json();
+  } catch (err) {
+    console.error(`Error fetching provider data for NPI ${npi}:`, err);
+    return null;
+  }
 };
 
 const filterAndSortReviews = (reviews) => {

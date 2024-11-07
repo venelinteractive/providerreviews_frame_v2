@@ -3,12 +3,12 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm ci --cache .npm --prefer-offline
+        - npm ci
     build:
       commands:
         - npm run build
   artifacts:
-    baseDirectory: .next
+    baseDirectory: out
     files:
       - "**/*"
   cache:
@@ -24,6 +24,6 @@ frontend:
     - source: '/providers/<*>'
       target: '/providers/[npi].html'
       status: '200'
-    - source: '</^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|woff2|ttf|map|json)$)([^.]+$)/'
+    - source: '/<*>'
       target: '/index.html'
       status: '200'
