@@ -6,16 +6,12 @@ frontend:
         - npm ci
     build:
       commands:
+        - env | grep -e API_URL -e API_KEY -e REVALIDATE_SECRET >> .env.production
         - npm run build
-        - npm run export
   artifacts:
     baseDirectory: out
     files:
       - '**/*'
-  rewrites:
-    - source: '/providers/:npi'
-      target: '/providers/[npi].html'
-      status: '200'
-    - source: '/<*>'
-      target: '/index.html'
-      status: '200'
+  cache:
+    paths:
+      - node_modules/**/*
