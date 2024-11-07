@@ -1,0 +1,68 @@
+:root {
+  --primary: #0070f3;
+}
+/* html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+img {
+  max-width: 100%;
+  display: block;
+}
+*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+.container {
+  max-width: 100%;
+}
+.platformLogo {
+  width: 32px;
+  height: 32px;
+
+}
+.platformLogo{
+  content: url(/images/profile.jpg);
+}
+.healthgrades .platformLogo{
+  content: url(/images/healthgrades.png);
+}
+.vitals .platformLogo{
+  content: url(/images/vitals.png);
+}
+.ratemds .platformLogo{
+  content: url(/images/ratemds.png);
+}
+.google .platformLogo{
+  content: url(/images/google.png);
+}
+ .reviewlist li {
+  list-style: none;
+  margin-bottom: 1rem;
+  padding: .75rem 1rem;
+  border: 1px solid #ededed;
+  border-radius: 4px;
+ }
+ .updateReview {
+  display: none;
+ }

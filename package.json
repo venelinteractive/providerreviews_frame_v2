@@ -1,0 +1,32 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "date-fns": "^2.28.0",
+    "gray-matter": "^4.0.3",
+    "next": "^12.2.3",
+    "rating-star": "^1.1.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-infinite-scroll-component": "^6.1.0",
+    "react-virtuoso": "^3.1.0",
+    "react-window": "^1.8.7",
+    "recharts": "^2.1.10",
+    "sharp": "^0.30.7",
+    "@tanstack/react-virtual": "^3.0.0",
+    "react-intersection-observer": "^9.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.7",
+    "cssnano": "^5.1.12",
+    "eslint": "^8.21.0",
+    "eslint-config-next": "12.2.3",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.1.2"
+  }
+}

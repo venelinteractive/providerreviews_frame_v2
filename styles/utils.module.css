@@ -1,0 +1,148 @@
+.heading2Xl {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.05rem;
+  margin: 1rem 0;
+}
+
+.headingXl {
+  font-size: 2rem;
+  line-height: 1.3;
+  font-weight: 800;
+  letter-spacing: -0.05rem;
+  margin: 1rem 0;
+}
+
+.headingLg {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin: 1rem 0;
+}
+
+.headingMd {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.borderCircle {
+  border-radius: 9999px;
+}
+
+.colorInherit {
+  color: inherit;
+}
+
+.padding1px {
+  padding-top: 1px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listItem {
+  margin: 0 0 1.25rem;
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.reviewContainer {
+  /* font-size: 0.8rem;
+  padding: 8px; */
+}
+
+.lightText {
+  color: #666;
+}
+.headingnpi {
+  font-size:0.8rem;
+}
+.ratingTotals{
+  text-align: center;
+}
+
+.ratingCount {
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  text-align: left;
+}
+.totalRating {
+  font-size: 2.5rem;
+}
+
+.reviewMeta {
+  display: flex;
+  align-items: center;
+  flex-direction:column;
+  text-align: left;
+}
+
+
+.reviewer {
+  font-size: 0.8rem;
+  font-weight: normal;
+  margin: 1rem 0 1rem 0;
+  display: block;
+  text-align: left;
+  text-transform: none;
+}
+.reviewer span {
+  font-weight: 800;
+  text-transform: lowercase;
+  text-transform: capitalize;
+  display: block;
+}
+.platform {
+  font-size: 0.75rem;
+  font-weight: 800;
+  margin: 0;
+  padding: 0 0 0 8px;
+  text-transform: lowercase;
+  text-transform: capitalize;
+}
+
+.date {
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin: 0;
+  padding: 0 0 0 8px;
+  text-transform: lowercase;
+  text-transform: capitalize;
+}
+
+.customtooltip {
+  background: #e0e0e0;
+  padding: 4px;
+  font-size: .875rem;
+}
+
+
+@media screen and (min-width:402px) {
+  .reviewMeta {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+    .platform {
+      font-size: 0.75rem;
+      font-weight: 800;
+      margin: 0;
+
+      text-transform: lowercase;
+      text-transform: capitalize;
+    }
+
+        .date {
+          font-size: 0.75rem;
+          font-weight: 600;
+          margin: 0;
+          padding: 8px 0 8px 0;
+          text-transform: lowercase;
+          text-transform: capitalize;
+        }
+
+}
