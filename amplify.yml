@@ -7,16 +7,13 @@ frontend:
     build:
       commands:
         - npm run build
+        - npm run export
   artifacts:
     baseDirectory: out
     files:
-      - "**/*"
-  cache:
-    paths:
-      - .next/cache/**/*
-      - .npm/**/*
-  redirects:
-    - source: '/providers/<*>'
+      - '**/*'
+  rewrites:
+    - source: '/providers/:npi'
       target: '/providers/[npi].html'
       status: '200'
     - source: '/<*>'
