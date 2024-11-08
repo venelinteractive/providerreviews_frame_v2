@@ -1,0 +1,45 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+        # Install Sharp for image optimization
+        - npm install sharp
+        # Validate environment variables
+        - |
+          if [ -z "$API_URL" ] || [ -z "$API_KEY" ] || [ -z "$REVALIDATE_SECRET" ]; then
+            echo "Missing required environment variables"
+            exit 1
+          fi
+    build:
+      commands:
+        # Create production env file
+        - env | grep -e API_URL -e API_KEY -e REVALIDATE_SECRET >> .env.production
+        # Set Node options for larger builds
+        - export NODE_OPTIONS="--max-old-space-size=8192"
+        # Build the application
+        - npm run build
+  artifacts:
+    # Include both build output and static files
+    baseDirectory: .next
+    files:
+      - '**/*'
+    # Secondary artifacts for public files
+    secondaryArtifacts:
+      - baseDirectory: public
+        files:
+          - '**/*'
+      - baseDirectory: .next/static
+        files:
+          - '**/*'
+        distribution: '/static'
+      - baseDirectory: .next/server
+        files:
+          - '**/*'
+        distribution: '/server'
+  cache:
+    paths:
+      - node_modules/**/*
+      - .next/cache/**/*
+  buildPath: /
