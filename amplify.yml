@@ -4,7 +4,6 @@ frontend:
     preBuild:
       commands:
         - npm ci
-        # Install Sharp for image optimization
         - npm install sharp
         # Validate environment variables
         - |
@@ -14,32 +13,20 @@ frontend:
           fi
     build:
       commands:
-        # Create production env file
         - env | grep -e API_URL -e API_KEY -e REVALIDATE_SECRET >> .env.production
-        # Set Node options for larger builds
         - export NODE_OPTIONS="--max-old-space-size=8192"
-        # Build the application
         - npm run build
+        # Prepare standalone build
+        - node -e "const fs=require('fs'); const pkg=JSON.parse(fs.readFileSync('package.json')); pkg.dependencies=pkg.dependencies||{}; pkg.dependencies['sharp']=pkg.dependencies['sharp']||'*'; fs.writeFileSync('package.json', JSON.stringify(pkg));"
+        # Ensure all necessary files are copied
+        - cp -r .next/static .next/standalone/.next/
+        - cp -r public .next/standalone/
+        - cp .env.production .next/standalone/
   artifacts:
-    # Include both build output and static files
-    baseDirectory: .next
+    baseDirectory: .next/standalone
     files:
       - '**/*'
-    # Secondary artifacts for public files
-    secondaryArtifacts:
-      - baseDirectory: public
-        files:
-          - '**/*'
-      - baseDirectory: .next/static
-        files:
-          - '**/*'
-        distribution: '/static'
-      - baseDirectory: .next/server
-        files:
-          - '**/*'
-        distribution: '/server'
   cache:
     paths:
       - node_modules/**/*
       - .next/cache/**/*
-  buildPath: /

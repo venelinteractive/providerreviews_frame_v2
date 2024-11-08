@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useInView } from 'react-intersection-observer';
+import ErrorBoundary from '../../components/ErrorBoundary';
 import Layout from '../../components/layout';
 import ReviewList from '../../components/ReviewList';
 import Stars from '../../components/stars';
@@ -67,6 +68,7 @@ export default function Provider({ initialProvider }) {
   }, [inView, fetchMoreReviews, hasMore, loading]);
 
   return (
+    <ErrorBoundary>
     <Layout>
       <Head>
         <title>{`Review Summary: ${provider.listing}`}</title>
@@ -102,6 +104,7 @@ export default function Provider({ initialProvider }) {
         </div>
       </section>
     </Layout>
+    </ErrorBoundary>
   );
 }
 
