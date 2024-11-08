@@ -1,11 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true,
   images: {
-    unoptimized: true,
+    domains: [], // Add your image domains if any
+    unoptimized: false,
   },
-  trailingSlash: false,
-  // This is important for dynamic routes in static exports
-
+  experimental: {
+    // Enable if you want to use React Server Components
+    serverActions: true,
+  },
 };
 
 module.exports = nextConfig;

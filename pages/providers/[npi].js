@@ -141,6 +141,7 @@ export async function getStaticPaths() {
         accept: 'application/json',
         apikey: process.env.API_KEY,
       },
+      cache: 'no-store',
     });
 
     if (!res.ok) {
@@ -215,6 +216,7 @@ const fetchProviderData = async (npi) => {
         accept: 'application/json',
         apikey: process.env.API_KEY,
       },
+      cache: 'no-store',
     });
 
     if (!res.ok) {

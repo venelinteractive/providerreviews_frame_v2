@@ -97,6 +97,7 @@ const ReviewListItem = memo(({ review, providerName }) => {
               width={32}
               height={32}
               alt={platform || 'Unknown platform'}
+              priority={false}
             />
           </div>
           <Stars
