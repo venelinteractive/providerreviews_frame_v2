@@ -35,6 +35,7 @@ a:hover {
 }
 .container {
   max-width: 100%;
+  background-color: white;
 }
 .platformLogo {
   width: 32px;
@@ -62,6 +63,7 @@ a:hover {
   padding: .75rem 1rem;
   border: 1px solid #ededed;
   border-radius: 4px;
+  background-color: #fff;
  }
  .updateReview {
   display: none;
