@@ -62,6 +62,10 @@ const ReviewListItem = memo(({ review, providerName }) => {
       .replace('&', '-')
       .replace('.com', '') || 'unknown';
 
+  const imagePath = `/images/${
+    platformSites.has(cleanedPlatform) ? cleanedPlatform : 'practice'
+  }.png`;
+
   const jsonLdData = {
     '@context': 'http://schema.org',
     '@type': 'Review',
@@ -89,14 +93,13 @@ const ReviewListItem = memo(({ review, providerName }) => {
         <div className='flex items-center gap-4'>
           <div className='reviewlogo'>
             <Image
-              src={`/images/${
-                platformSites.has(cleanedPlatform)
-                  ? cleanedPlatform
-                  : 'practice'
-              }.png`}
+              src={imagePath}
               width={32}
               height={32}
               alt={platform || 'Unknown platform'}
+              className='object-contain'
+              unoptimized
+              priority
             />
           </div>
           <Stars
